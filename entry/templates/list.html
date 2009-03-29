@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    All Entries
+{% endblock %}
+
+{% block content %}
+
+    {% load comments %}
+
+    {% if entry_list %}
+        {% for entry in entry_list %}
+        <div class="entry_box">
+            <h1 class="post_title"><a href="/view/{{ entry.slug }}/">{{ entry.title }}</a></h1>
+            <div class="post_signature">
+                Posted by: <a href="/author/{{ entry.author }}/">{{ entry.author }}</a> | 
+                Date: <a href="/date/{{ entry.created_at|date:"Y-m-d" }}/">{{ entry.created_at|date:"M d, Y" }}</a> |
+                Category: 
+                {% for category in entry.category_list %}
+                    <a href="/category/{{ category|slugify }}/">{{ category }}</a>
+                {% endfor %} | 
+                {% get_comment_count for entry as comment_count %}
+                Comments: {{ comment_count }}
+                {% if user.is_superuser and user.is_staff %}
+                    | <a href="/admin/entry/post/{{ entry.id }}/">EDIT THIS POST</a><br />
+                {% endif %}
+            </div>
+            <div class="post_preview">
+                {% autoescape off %}{{ entry.body|truncatewords:50 }}{% endautoescape %}<br /><br />
+                <a href="/view/{{ entry.slug }}/">Read More</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        No entries available.<br />
+    {% endif %}
+
+<div class="pagination" align="center">
+    {% for page in page_range %}
+        <a href="/{% if category %}category/{{ category }}/{% endif %}{% if author %}author/{{ author }}/{% endif %}{% if date %}date/{{ date }}/{% endif %}?page={{ page }}">{{ page }}</a>
+    {% endfor %}
+</div>
+
+{% endblock %}

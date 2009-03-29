@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ entry.title }}{% endblock %}
+
+{% block content %}
+
+{% if entry %}
+
+    <div class="entry_box">
+        <h1 class="post_title">{{ entry.title }}</h1>
+        <div class="post_signature">
+            Posted by: <a href="/author/{{ entry.author }}/">{{ entry.author }}</a> | 
+            Date: <a href="/date/{{ entry.created_at|date:"Y-m-d" }}/">{{ entry.created_at|date:"M d, Y" }}</a> | 
+            Category: 
+            {% for category in entry.category_list %}
+                <a href="/category/{{ category|slugify }}/">{{ category }}</a>
+            {% endfor %}
+            {% if user.is_superuser and user.is_staff %}
+                | <a href="/admin/entry/post/{{ entry.id }}/">EDIT THIS POST</a><br />
+            {% endif %}
+        </div>
+        <div class="post_body">{% autoescape off %}{{ entry.body }}{% endautoescape %}</div>
+    </div>
+
+    {% load comments %}
+
+    {% get_comment_list for entry as cmt_list %}
+    {% for comment in cmt_list %}
+    <div class="comment">
+        <p><a href="{{ comment.user_url }}">{{ comment.user_name }}</a> - {{ comment.submit_date }}</p>
+        {{ comment.comment }}
+    </div>
+    {% endfor %}
+
+    {% if comment_list %}
+        <div class="comment_box">
+        {% for comment in comment_list %}
+            <a name="comment-{{ comment.id }}"></a>
+            <div class="comment" id="comment-{{ comment.id }}">
+            <div class="comment_signature">
+                Comment by 
+                {% if comment.website %}<a href="{{ comment.website }}">{{ comment.fullname }}</a>{% else %}{{ comment.fullname }}{% endif %} 
+                on <a href="#comment-{{ comment.id }}">{{ comment.created_at|date:"M d, Y" }}</a>:
+            </div>
+            <div class="comment_body">{{ comment.body }}</div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="comment_form">
+        {% render_comment_form for entry %}
+    </div>
+
+{% else %}
+
+    Sorry, nothing to see here.<br />
+
+{% endif %}
+
+{% endblock %}
+

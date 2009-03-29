@@ -1,0 +1,10 @@
+
+<div id="sidebar-list">
+{% if months %}
+    <h2>Archive</h2>
+    {% for month in months %}
+        <a href="/date/{{ month|date:"Y-m" }}">{{ month|date:"Y F" }}</a><br />
+    {% endfor %}
+{% endif %}
+</div>
+

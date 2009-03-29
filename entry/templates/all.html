@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    All Entries
+{% endblock %}
+
+{% block content %}
+
+    {% load comments %}
+
+    {% if entry_list %}
+        <div class="entry_box" style="width: 950px;">
+	<table cellpadding="3">
+        <tr valign="top">
+            <td>Title</td>
+            <td nowrap>Posted by</td>
+            <td>Date</td>
+            <td>Category</td>
+            <td>Comments</td>
+        </tr>
+        {% for entry in entry_list %}
+	    <tr valign="top">
+	    <td nowrap><a href="/view/{{ entry.slug }}/">{{ entry.title }}</a></td>
+	    <td nowrap><a href="/author/{{ entry.author }}/">{{ entry.author }}</a></td>
+	    <td nowrap><a href="/date/{{ entry.created_at|date:"Y-m-d" }}/">{{ entry.created_at|date:"M d, Y" }}</a></td>
+	    <td nowrap>{% for category in entry.category_list %} <a href="/category/{{ category|slugify }}/">{{ category }}</a>{% endfor %}</td>
+            <td align="center">{% get_comment_count for entry as comment_count %} {{ comment_count }}</td>
+	    </tr>
+        {% endfor %}
+	</table>
+        </div>
+    {% else %}
+        No entries available.<br />
+    {% endif %}
+
+{% endblock %}

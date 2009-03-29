@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>{% block page_title %}Belleville Blogger{% endblock %}</title>
+    {% block page_css %}<link rel="stylesheet" type="text/css" href="/site_media/css/belleville.css">{% endblock %}
+    {% block page_js %}{% endblock %}
+</head>
+<body>
+
+<div id="top">
+    {% block header %}
+        {% include "header.html" %}
+    {% endblock %}
+</div>
+
+<div id="container">
+    <table><tr valign="top"><td>
+    <div id="sidebar">
+        {% block sidebar %}
+            {% include "sidebar.html" %}
+        {% endblock %}
+    </div>
+    </td><td>
+    <div id="content">
+        <h2>
+        {% block title %}
+            <!-- page title -->
+        {% endblock %}
+        </h2>
+        {% block content %}
+            <!-- default content -->
+        {% endblock %}
+    </div>
+    </td></tr></table>
+</div>
+
+    <div id="footer">
+        {% block footer %}
+            {% include "footer.html" %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+
+{% if all_books %}
+    <table cellpadding="5">
+    {% for book in all_books %}
+        <tr valign="top">
+        <td><a href="http://www.powells.com/partner/33557/biblio/{{ book.isbn }}/" target="new">{{ book.title }}</a></td>
+        <td><a href="http://www.powells.com/partner/33557/s?kw={{ book.author_last_name }}+{{ book.author_first_name }}" target="new">{{ book.author_first_name }} {{ book.author_last_name }}</a></td>
+        <td>{% if book.rating %}<img src="/site_media/images/{{ book.rating }}_stars.jpg">{% endif %}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+

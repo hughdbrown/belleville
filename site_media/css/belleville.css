@@ -1,0 +1,78 @@
+html,body { font: 12px Trebuchet, Verdana, Helvetica, Arial, San-serif; letter-spacing: 0px; line-height: 20px; color: #1a1a1a; height: 100%; }
+body { background-color: #fff; width: 100%; height: 100%; z-index:1; position:relative; margin: 0; padding: 0; }
+a img { border: none; }
+
+/* global effects */
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+.visible { display: block; }
+.hidden { display: none; }
+.hand { cursor: pointer; }
+.half { width: 49%; }
+.invisible { opacity: 0; }
+.inactive { color: #333; }
+
+h1 { font-size: 20px; }
+h2, h3, h4 { font-size: 16px; }
+
+pre { background-color: #999; color: #000; overflow: auto; display:block; width:500px; padding:10px; }
+
+a { color: #0067e5; text-decoration: none; font-weight: bold; }
+a:link, a:active { color: #0067e5; text-decoration: none; font-weight: bold; }
+a:visited { color: #0067e5; text-decoration: none; font-weight: bold; }
+a:hover { color: #80c41c; text-decoration: none; }
+
+#container { background-color: #fff; line-height: 130%; width: 100%; }
+#sidebar { width: 250px; margin: 0; padding-left: 5px; padding-top: 5px; }
+#content { padding: 5px; width: 100%; }
+#top { margin: 0px; padding: 0px; background-color: #000; width: 100%; }
+#top .header { width: 100%; border: 1px solid #000; background: transparent url('../images/top5.jpg') no-repeat top left; height: 250px; }
+#footer { margin: 0; padding: 0; width: 100%; font-size: 10px; }
+
+hr { margin: 10px; color: #003366; background-color: #003366; height: 1px; }
+
+.pagelinks { float: right; margin: 3px 15px 0 0; }
+.pagelinks a { color: #fff; }
+
+.required { color: #ff4400; } 
+
+.form { border: 0 solid; }
+fieldset {padding: 0; margin-top: 5px;}
+textarea { height: 100px; width: 50%; background-color: #e1e1e1; }
+label { font-weight: bold; width: 250px; float: left; text-align: right; margin-right: 0.5em; display: block }
+.error { color: red; text-align: right; width: 300px; }
+
+/* --- (logo) --- */
+#logo { margin: 220px 0 90px 900px; width:500px; font-family: "arial,Verdana,trebuchet ms"; }
+#logo h2 { font-size: 26px; font-family: "arial,Verdana,trebuchet ms"; padding:0; margin: 0; }
+#logo h2 a { color: #1084ce; text-decoration: none; }
+#logo h2 a:hover { text-decoration: none; color: #82abc6; }
+#logo p { padding:0; margin: 0; color: #82abc6; font-size: 13px; }
+
+div#pages { width:100%; background-color: #1084ce; font-family: "Verdana"; height: 25px; }
+div#pages ul { padding: 0px 0px 0px; white-space: nowrap; list-style-type: none; margin: 0px; }
+div#pages ul li { float:right; }
+div#pages ul li.current_page_item a  { text-decoration: underline; }
+div#pages ul li a { display: block; text-decoration: none; border-left: 1px dotted #333; font-size:12px; padding:4px 15px 4px 15px; text-transform: uppercase; color: #000; font-weight:bold; }
+div#pages ul li a:hover { color: #333333; background-color:#82abc6; }
+
+.entry_box{ color:#000; background-color: #fff; border: 1px dotted #1084ce; margin: 15px; padding: 15px; }
+.post_title { letter-spacing: 0px; line-height: 120%; color: #1084ce; font-weight: bold; margin: 15px 0 15px 0; font-size: 24px; }
+.post_title a { color: #0099FF; text-decoration: none; border-bottom:#000 1px solid; }
+.post_preview{ padding: 5px; margin: 5px; line-height: 150%; }
+.post_body{ padding: 5px; margin: 5px; line-height: 150%; }
+.post_signature{ padding: 10px; margin: 10px; }
+
+.comment_box { margin: 15px; padding: 15px; }
+.comment { color:#1C3443; background-color: #fff; border: 1px dotted #1084ce; margin: 15px; padding: 15px; }
+.comment_signature { font-weight: bold; padding: 5px; margin: 5px; }
+.comment_body { font-weight: normal; padding: 5px; margin: 5px; line-height: 150%; }
+.comment_form { color:#1C3443; background-color: #fff; border: 1px dotted #1084ce; margin: 15px; padding: 15px; }
+
+#sidebar-list { padding: 5px; }
+#sidebar-list h2{ font-size: 14px; font-weight: bold; text-transform: uppercase; color: #0099FF; }
+
+#twitter_div { margin-left: 10px; padding: 5px; width: 200px; color: #003366; }
+#twitter_update_list li { list-style-type: none; padding: 2px; }
+

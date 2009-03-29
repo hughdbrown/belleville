@@ -1,0 +1,26 @@
+
+<div id="sidebar-list">
+
+{% if current_books %}
+    What I'm reading:
+    <ul>
+    {% for book in current_books %}
+        <li><a href="{{ book.get_absolute_url }}" target="new">{{ book.title }}</a><br />
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if tbr_books %}
+    On the pile:
+    <ul>
+    {% for book in tbr_books %}
+        <li><a href="{{ book.get_absolute_url }}" target="new">{{ book.title }}</a><br />
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<h2><a href="/pages/books/">My Library</a></h2>
+
+</div>
+
+

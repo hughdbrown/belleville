@@ -1,0 +1,29 @@
+
+<div>
+<div class="left" style="padding: 5px;">
+    <a href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img src="http://media.djangopony.com/img/small/badge.png" width="210" height="65" alt="ponybadge"></a>
+</div>
+<div class="right" style="padding: 5px;">
+    <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangopowered126x54.gif" border="0" alt="Powered by Django." title="Powered by Django." /></a>
+</div>
+<div class="clear" align="center">
+    {% if user.is_superuser and user.is_staff %}
+	<a href="/admin/">ADMIN</a>
+    {% endif %}
+</div>
+</div>
+
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/bshaurette.json?callback=twitterCallback2&amp;count=5"></script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2383641-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+

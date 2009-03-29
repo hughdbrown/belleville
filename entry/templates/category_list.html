@@ -1,0 +1,10 @@
+
+<div id="sidebar-list">
+{% if categories %}
+    <h2>Categories</h2>
+    {% for category in categories %}
+        <a href="/category/{{ category.name|slugify }}/">{{ category.name }} ({{ category.posts|length }})</a><br />
+    {% endfor %}
+{% endif %}
+</div>
+

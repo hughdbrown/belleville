@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    My Library
+{% endblock %}
+
+{% block title %}
+    My Library
+{% endblock %}
+
+{% block content %}
+<div class="entry_box">
+    {% load plugin_tags %}
+    {% library_all %}
+</div>
+{% endblock %}

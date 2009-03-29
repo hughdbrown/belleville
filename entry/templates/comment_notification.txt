@@ -1,0 +1,13 @@
+Name: {{ fullname }}
+
+Email Address: {{ email }}
+
+URL: {{ website }}
+
+Post: {{ title }}
+
+Comment: {{ body }}
+
+Approve or delete here:  http://{{ site }}/admin/entry/post/{{ post }}/
+
+
