@@ -28,7 +28,7 @@
     {% for comment in cmt_list %}
     <div class="comment">
         <p><a href="{{ comment.user_url }}">{{ comment.user_name }}</a> - {{ comment.submit_date }}</p>
-        {{ comment.comment }}
+        {{ comment.comment|linebreaks }}
     </div>
     {% endfor %}
 
