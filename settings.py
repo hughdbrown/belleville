@@ -1,5 +1,6 @@
 # Django settings for belleville project.
 import os
+import os.path
 import logging
 
 DEBUG = True
@@ -10,13 +11,6 @@ ADMINS = (
 )
 ADMIN_EMAIL = 'bshaurette@gmail.com'
 MANAGERS = ADMINS
-
-DATABASE_ENGINE = ''	    # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = ''	    # Or path to database file if using sqlite3.
-DATABASE_USER = ''              # Not used with sqlite3.
-DATABASE_PASSWORD = ''         # Not used with sqlite3.
-DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -35,8 +29,12 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
+PROJECT_ROOT = '/Users/barbara/Code/belleville'
+#This would work much better:
+#PROJECT_ROOT = os.path.dirname(__file__)
+
 # Absolute path to the directory that holds media.
-MEDIA_ROOT = '/Users/barbara/Code/belleville/site_media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/')
 
 # URL that handles the media served from MEDIA_ROOT
 MEDIA_URL = 'http://127.0.0.1:8000/site_media/'
@@ -51,7 +49,6 @@ SECRET_KEY = ''
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
-#     'django.template.loaders.eggs.load_template_source',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,7 +61,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'belleville.urls'
 
 TEMPLATE_DIRS = (
-    '/Users/barbara/Code/belleville/templates/', 
+    os.path.join(PROJECT_ROOT, 'templates/'),
 )
 
 INSTALLED_APPS = (
@@ -80,15 +77,19 @@ INSTALLED_APPS = (
     'belleville.plugins.books',
 )
 
-AKISMET_API_KEY = ''
+try:
+    from local_settings import *
+except ImportError:
+    print "Missing %s" % os.path.join(PROJECT_ROOT, "local_settings.py")
 
+LOG_DIR = '/Users/barbara/Code/logs/'
+# This would work a lot better:
+#LOG_DIR = os.path.join(PROJECT_ROOT, 'logs')
 LOGGING_LEVEL   = (logging.DEBUG if DEBUG else logging.WARNING)
 # LOGGING_LOGFILE = os.path.join(os.environ['DJANGO_LOG_DIR'], DATABASE_NAME+'.log').replace('\\','/')
-LOGGING_LOGFILE = '/Users/barbara/Code/logs/'+DATABASE_NAME+'.log'
+LOGGING_LOGFILE = os.path.join(LOG_DIR, DATABASE_NAME+'.log')
 LOGGING_FORMAT  = "%(asctime)s [%(levelname)s] %(message)s"
 LOGGING_DATEFMT = "%m-%d %H:%M:%S"
 
 logging.basicConfig(level=LOGGING_LEVEL, format=LOGGING_FORMAT,
                     datefmt=LOGGING_DATEFMT, filename=LOGGING_LOGFILE, filemode="a")
-
-
