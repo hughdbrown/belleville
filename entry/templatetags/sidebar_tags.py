@@ -17,15 +17,7 @@ def sidebar_category_list():
 register.inclusion_tag('category_list.html')(sidebar_category_list)
 
 def sidebar_date_list():
-    posts = Post.objects.filter(publish=1).order_by('-created_at')
-    month_list = []
-    for post in posts:
-        post.month = datetime.datetime(post.created_at.year, post.created_at.month, 1)
-        month_list.append(post.month)
-    months = set(month_list)
-    months = list(months)
-    months.sort(reverse=True)
-    return {'months': months}
+    return {'months': Post.objects.filter(publish=1).dates('created_at', 'month', order='DESC')}
 register.inclusion_tag('date_list.html')(sidebar_date_list)
 
  
