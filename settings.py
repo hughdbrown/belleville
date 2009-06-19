@@ -1,5 +1,4 @@
 # Django settings for belleville project.
-import os
 import os.path
 import logging
 
@@ -37,7 +36,7 @@ PROJECT_ROOT = os.path.dirname(__file__)
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/')
 
 # URL that handles the media served from MEDIA_ROOT
-MEDIA_URL = 'http://127.0.0.1:8000/site_media/'
+MEDIA_URL = '/site_media/'
 
 # URL prefix for admin media
 ADMIN_MEDIA_PREFIX = '/media/'
