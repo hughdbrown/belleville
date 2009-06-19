@@ -16,11 +16,10 @@ def list_all(request):
     
     """
     template_name = 'all.html'
-    context = {}
     list_all = Post.objects.filter(publish=True).order_by('-created_at')
     for entry in list_all:
         entry.category_list = Category.objects.filter(postcategory__post__pk=entry.id)
-    context['entry_list'] = list_all
+    context = {'entry_list': list_all }
     return render_to_response(template_name, context, context_instance=RequestContext(request))
 
 def list_entries(request, category=None, username=None, date=None):
@@ -71,7 +70,7 @@ def viewid(request, id):
         title = commented_entry.slug
         return HttpResponseRedirect('/view/%s/' % title)
     except ObjectDoesNotExist:
-	return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/')	
 
 def view(request, title, form_class=CommentForm):
     """
