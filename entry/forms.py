@@ -12,4 +12,3 @@ class CommentForm(ModelForm):
 
     class Meta:
         model = Comment
-
