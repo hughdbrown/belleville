@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from belleville.admin import site
 from belleville.feeds import LatestDjangoEntries, LatestEntries
+from belleville.settings import *
 
 admin.autodiscover()
 
@@ -17,7 +18,7 @@ urlpatterns = patterns('',
     (r'^pages/', include('belleville.pages.urls')),
     (r'^comments/', include('django.contrib.comments.urls')), 
     (r'', include('belleville.entry.urls')),
-    (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/Users/barbara/Code/belleville/site_media/'}),
+    (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
     (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 )
 
