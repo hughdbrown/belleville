@@ -2,4 +2,4 @@
 # Never done one before -- not sure if it's right.
 Django==1.0.2-final
 
--e git+git://github.com/clones/python-akismet.git
+-e git+http://github.com/clones/python-akismet.git#egg=akismet
