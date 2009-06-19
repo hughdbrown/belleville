@@ -2,6 +2,11 @@
 import os.path
 import logging
 
+try:
+    from local_settings import *
+except ImportError:
+    print "Missing %s" % os.path.join(PROJECT_ROOT, "local_settings.py")
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -74,12 +79,8 @@ INSTALLED_APPS = (
     'belleville.pages',
     'belleville.plugins',
     'belleville.plugins.books',
+    #'belleville.src.akismet',
 )
-
-try:
-    from local_settings import *
-except ImportError:
-    print "Missing %s" % os.path.join(PROJECT_ROOT, "local_settings.py")
 
 #LOG_DIR = '/Users/barbara/Code/logs/'
 # This would work a lot better:

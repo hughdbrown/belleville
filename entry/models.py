@@ -87,8 +87,9 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
     from django.conf import settings
 
     try:
-        from akismet import Akismet
+        from src.akismet.akismet import Akismet
     except:
+        print "Comment was not checked with akismet"
         return
 
     ak = Akismet(
