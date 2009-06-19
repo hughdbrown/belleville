@@ -1,0 +1,11 @@
+1. Create local_settings.py based on local_settings.py.txt
+1.5 Run PIP to install requirements:
+python pip.py --requirement=requirements.txt
+2. Create log directory for database (see logging settings in settings.py)
+3. Run 'python manage.py validate'. Fix errors.
+4. Run 'python manage.py syncdb' to create database.
+5. Run 'python manage.py runserver' to launch webserver.
+6. Navigate to 'http://localhost:8000/' in web browser.
+
+2009-06-19: Still some sort of manual configuration necessary to get akismet working with comments.
+
