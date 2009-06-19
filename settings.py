@@ -29,9 +29,9 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
-PROJECT_ROOT = '/Users/barbara/Code/belleville'
+#PROJECT_ROOT = '/Users/barbara/Code/belleville'
 #This would work much better:
-#PROJECT_ROOT = os.path.dirname(__file__)
+PROJECT_ROOT = os.path.dirname(__file__)
 
 # Absolute path to the directory that holds media.
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/')
@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'middleware.project_logging.LoggingMiddleware',
+    #'middleware.project_logging.LoggingMiddleware',
 )
 
 ROOT_URLCONF = 'belleville.urls'
@@ -82,9 +82,9 @@ try:
 except ImportError:
     print "Missing %s" % os.path.join(PROJECT_ROOT, "local_settings.py")
 
-LOG_DIR = '/Users/barbara/Code/logs/'
+#LOG_DIR = '/Users/barbara/Code/logs/'
 # This would work a lot better:
-#LOG_DIR = os.path.join(PROJECT_ROOT, 'logs')
+LOG_DIR = os.path.join(PROJECT_ROOT, 'logs')
 LOGGING_LEVEL   = (logging.DEBUG if DEBUG else logging.WARNING)
 # LOGGING_LOGFILE = os.path.join(os.environ['DJANGO_LOG_DIR'], DATABASE_NAME+'.log').replace('\\','/')
 LOGGING_LOGFILE = os.path.join(LOG_DIR, DATABASE_NAME+'.log')
