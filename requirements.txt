@@ -1,5 +1,5 @@
 # PIP file for Belleville
 # Never done one before -- not sure if it's right.
-Django==1.0.2-final
+Django==1.11.29
 
 -e git+http://github.com/clones/python-akismet.git#egg=akismet
